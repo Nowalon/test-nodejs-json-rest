@@ -1,0 +1,19 @@
+{
+  "name": "test-nodejs-json-rest",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "forever -w ./server/index.js",
+    "write_data": "node ./server/populateJSONData.js"
+  },
+  "author": "Nowalon",
+  "license": "GPL",
+  "dependencies": {
+    "http-proxy": "^1.18.1"
+  },
+  "devDependencies": {
+    "forever": "^4.0.2"
+  }
+}
