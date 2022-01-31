@@ -1,4 +1,5 @@
 fs = require('fs');
+const utils = require('../utils')
 
 
 const filename = `${process.cwd()}/server/data.json`;
@@ -7,7 +8,9 @@ const filename = `${process.cwd()}/server/data.json`;
 exports.readData = cb => {
   checkFile(() => {
     fs.readFile(filename, function(err, data) {
-      cb && cb(err, data?.toString());
+      setTimeout(() => {
+        cb && cb(err, data?.toString());
+      }, utils.getRandomIntMinMax(200, 1800));
     });
   });
 };
