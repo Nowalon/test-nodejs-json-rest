@@ -1,0 +1,307 @@
+<h1 id="api-description">API description</h1>
+<h4 id="methods-get-post-patch-delete">Methods: <code>GET, POST, PATCH, DELETE</code></h4>
+<hr>
+<h4 id="get">GET:</h4>
+<h4 id="get-grouped-items-list-----list">get grouped items list:     <code>/list</code></h4>
+<p>Method: <code>GET</code></p>
+<p>params:</p>
+<pre><code>search      [optional] - search by item name string value. default - an empty, skipped
+type        [optional] - one of group category type [CLASSIC, MODERN] - filtering option. default - an empty, skipped
+sale        [optional] - filtering option (values: 1 or 0) to get items by &#39;isForSell&#39; property value. default - an empty, skipped
+archived    [optional] - filtering option (values: 1 or 0) to get items by &#39;archived&#39; property value. default - an empty, skipped
+include_search_notes [optional] - optional flag (values: 1 or 0) for including notes check for search query - an empty, equal to 0
+
+</code></pre>
+<p>request URL preview examples:</p>
+<pre><code>http://localhost:3089/list
+http://localhost:3089/list?search=pers
+http://localhost:3089/list?search=pers&amp;type=modern
+http://localhost:3089/list?type=modern&amp;sell=1
+http://localhost:3089/list?search=pers&amp;type=modern&amp;sell=0
+http://localhost:3089/list?type=modern&amp;sell=1&amp;archived=0
+
+
+</code></pre>
+<p>response result example:</p>
+<pre><code>{
+    &quot;status&quot;: &quot;ok&quot;,
+    &quot;error&quot;: null,
+    &quot;data&quot;: {
+        &quot;totalGroupCount&quot;: 17,
+        &quot;totalItemCount&quot;: 83,
+        &quot;list&quot;: [
+            {
+                &quot;id&quot;: 1,
+                &quot;title&quot;: &quot;est fugiendum Group 1&quot;,
+                &quot;type&quot;: &quot;CLASSIC&quot;,
+                &quot;items&quot;: [
+                    {
+                        &quot;id&quot;: 2,
+                        &quot;name&quot;: &quot;est eas perspicua&quot;,
+                        &quot;price&quot;: 92462,
+                        &quot;isForSell&quot;: true,
+                        &quot;archived&quot;: false,
+                        &quot;createdAt&quot;: &quot;2021-08-25T14:32:48.282Z&quot;
+                    }
+                ],
+                &quot;createdAt&quot;: &quot;2021-07-23T17:29:48.282Z&quot;
+            },
+            {
+                &quot;id&quot;: 3,
+                &quot;title&quot;: &quot;malum ad Group 3&quot;,
+                &quot;type&quot;: &quot;MODERN&quot;,
+                &quot;items&quot;: [
+                    {
+                        &quot;id&quot;: 13,
+                        &quot;name&quot;: &quot;talibus desiderare perspicuis quid&quot;,
+                        &quot;price&quot;: 11554,
+                        &quot;isForSell&quot;: false,
+                        &quot;archived&quot;: false,
+                        &quot;createdAt&quot;: &quot;2021-09-29T18:55:48.282Z&quot;
+                    }
+                ],
+                &quot;createdAt&quot;: &quot;2021-01-29T10:16:48.282Z&quot;
+            },
+            {
+                &quot;id&quot;: 13,
+                &quot;title&quot;: &quot;quae quaedam Group 13&quot;,
+                &quot;type&quot;: &quot;CLASSIC&quot;,
+                &quot;items&quot;: [
+                    {
+                        &quot;id&quot;: 64,
+                        &quot;name&quot;: &quot;perspicua&quot;,
+                        &quot;price&quot;: 89759,
+                        &quot;isForSell&quot;: true,
+                        &quot;archived&quot;: false,
+                        &quot;createdAt&quot;: &quot;2021-03-23T16:54:48.282Z&quot;
+                    }
+                ],
+                &quot;createdAt&quot;: &quot;2021-08-25T14:26:48.282Z&quot;
+            }
+        ]
+    }
+}
+
+
+</code></pre>
+<hr>
+<h4 id="get-1">GET:</h4>
+<h4 id="get-groups-only--------groups">get groups only:        <code>/groups</code></h4>
+<p>Method: <code>GET</code></p>
+<p>params:</p>
+<pre><code>type    [optional] - one of group category type [CLASSIC, MODERN] - filtering option. default - an empty, skipped
+
+
+</code></pre>
+<p>request URL preview examples:</p>
+<pre><code>http://localhost:3089/groups
+http://localhost:3089/groups?type=classic
+
+
+
+</code></pre>
+<p>response result example:</p>
+<pre><code>{
+    &quot;status&quot;: &quot;ok&quot;,
+    &quot;error&quot;: null,
+    &quot;data&quot;: {
+        &quot;totalGroupCount&quot;: 17,
+        &quot;list&quot;: [
+            {
+                &quot;id&quot;: 1,
+                &quot;title&quot;: &quot;est fugiendum Group 1&quot;,
+                &quot;type&quot;: &quot;CLASSIC&quot;,
+                &quot;createdAt&quot;: &quot;2021-07-23T17:29:48.282Z&quot;
+            },
+            {
+                &quot;id&quot;: 6,
+                &quot;title&quot;: &quot;faciamus-quid pulchritudinem Group 6&quot;,
+                &quot;type&quot;: &quot;CLASSIC&quot;,
+                &quot;createdAt&quot;: &quot;2021-09-23T16:15:48.282Z&quot;
+            },
+            {
+                &quot;id&quot;: 8,
+                &quot;title&quot;: &quot;Aeschines habitum Group 8&quot;,
+                &quot;type&quot;: &quot;CLASSIC&quot;,
+                &quot;createdAt&quot;: &quot;2021-04-22T13:24:48.282Z&quot;
+            },
+            {
+                &quot;id&quot;: 9,
+                &quot;title&quot;: &quot;disserendique magis Group 9&quot;,
+                &quot;type&quot;: &quot;CLASSIC&quot;,
+                &quot;createdAt&quot;: &quot;2021-08-27T16:39:48.282Z&quot;
+            }
+        ]
+    }
+}
+
+</code></pre>
+<hr>
+<h4 id="get-2">GET:</h4>
+<h4 id="get-item-------item">get item:       <code>/item</code></h4>
+<p>Method: <code>GET</code></p>
+<p>params:</p>
+<pre><code>id  [required] - item&#39;s id to fetch
+
+
+</code></pre>
+<p>response result example [Bad Request: id is not passed]:</p>
+<pre><code>{
+    &quot;status&quot;: &quot;error&quot;,
+    &quot;error&quot;: &quot;id param is required and should be an integer&quot;,
+    &quot;data&quot;: null
+}
+
+
+</code></pre>
+<p>response result example [success]:</p>
+<pre><code>{
+    &quot;status&quot;: &quot;ok&quot;,
+    &quot;error&quot;: null,
+    &quot;data&quot;: {
+        &quot;item&quot;: {
+            &quot;id&quot;: 36,
+            &quot;name&quot;: &quot;praecipiunt secundum percipiendis ad&quot;,
+            &quot;price&quot;: 85652,
+            &quot;notes&quot;: &quot;quin id tu essent nihil adipiscing ordinem censetis&quot;,
+            &quot;isForSell&quot;: false,
+            &quot;archived&quot;: false,
+            &quot;createdAt&quot;: &quot;2021-05-27T18:18:48.282Z&quot;
+        }
+    }
+}
+
+</code></pre>
+<hr>
+<h4 id="post">POST:</h4>
+<h4 id="create-item--------item">create item:        <code>/item</code></h4>
+<p>Method: <code>POST</code></p>
+<p>params:</p>
+<p>should be a value JSON data with object like following:</p>
+<pre><code>{
+    &quot;groupId&quot;: 6,
+    &quot;name&quot;: &quot;test 61 gggggg&quot;,
+    &quot;price&quot;: 9999,
+    &quot;isForSell&quot;: false,
+}
+
+</code></pre>
+<p>where   <code>groupId</code> value is required and should be an integer and valid id of existing group;<br>                <code>name</code> value is required and should be at least 3 chars length;<br>                <code>price</code> value is required and should be integer in range 100..100000 ($1..$1000);<br>                <code>isForSell</code> value is required and should be a boolean;  </p>
+<p>response result example:</p>
+<pre><code>{
+    &quot;status&quot;: &quot;ok&quot;,
+    &quot;error&quot;: null,
+    &quot;data&quot;: {
+        &quot;item&quot;: {
+            &quot;id&quot;: 21,
+            &quot;name&quot;: &quot;test 61 gggggg&quot;,
+            &quot;notes&quot;: &quot;&quot;,
+            &quot;price&quot;: 9999,
+            &quot;isForSell&quot;: false,
+            &quot;archived&quot;: false,
+            &quot;createdAt&quot;: &quot;2022-01-30T23:12:31.295Z&quot;
+        }
+    }
+}
+
+</code></pre>
+<hr>
+<h4 id="post-1">POST:</h4>
+<h4 id="create-group-------group">create group:       <code>/group</code></h4>
+<p>Method: <code>POST</code></p>
+<p>params:</p>
+<p>should be a value JSON data with object like following:</p>
+<pre><code>{
+    &quot;title&quot;: &quot;Group name Test 22&quot;,
+    &quot;type&quot;: &quot;classic&quot;,
+    &quot;test&quot;: &quot;Twatt&quot;,
+    &quot;value&quot;: &quot;Qwerty-Asdf&quot;
+}
+</code></pre>
+<p>where   <code>title</code> value is required and should be at least 3 chars length;<br><code>type</code> value is required and should be one of <code>[CLASSIC, MODERN]</code> values;</p>
+<p>response result example:</p>
+<pre><code>{
+    &quot;status&quot;: &quot;ok&quot;,
+    &quot;error&quot;: null,
+    &quot;data&quot;: {
+        &quot;group&quot;: {
+            &quot;id&quot;: 6,
+            &quot;title&quot;: &quot;Group name Test 22&quot;,
+            &quot;type&quot;: &quot;CLASSIC&quot;,
+            &quot;items&quot;: [],
+            &quot;createdAt&quot;: &quot;2022-01-30T19:33:22.866Z&quot;
+        }
+    }
+}
+
+</code></pre>
+<hr>
+<h4 id="update-patch">UPDATE (PATCH):</h4>
+<h4 id="update-item----item">update item:    <code>/item</code></h4>
+<p>Method: <code>PATCH</code></p>
+<p>params:</p>
+<pre><code>{
+    &quot;id&quot;: 2,
+    &quot;name&quot;: &quot;test-UPDATE__dtykrtrt-KkkkKK-KK&quot;,
+    &quot;notes&quot;: &quot;zxcc - handleUpdateItem. notes. updateValues updData PATCH&quot;,
+    &quot;price&quot;: 789,
+    &quot;isForSell&quot;: true,
+    &quot;archived&quot;: true,
+}
+</code></pre>
+<p>where   <code>id</code> value is required and should be an integer and valid id of existing item;<br>        <code>name</code> value is <em>optional</em> and should be at least 3 chars length;<br>        <code>notes</code> value is <em>optional</em> and should be at least 3 chars length;<br>        <code>price</code> value is <em>optional</em> and should be integer in range 100..100000 ($1..$1000);<br>        <code>isForSell</code> value is <em>optional</em> and should be a boolean;<br>        <code>archived</code> value is <em>optional</em> and should be a boolean;  </p>
+<p>response result example:</p>
+<pre><code>{
+    &quot;status&quot;: &quot;ok&quot;,
+    &quot;error&quot;: null,
+    &quot;data&quot;: {
+        &quot;item&quot;: {
+            &quot;id&quot;: 2,
+            &quot;name&quot;: &quot;test-UPDATE__dtykrtrt-KkkkKK-KK&quot;,
+            &quot;price&quot;: 789,
+            &quot;notes&quot;: &quot;zxcc - handleUpdateItem. notes. updateValues updData PATCH&quot;,
+            &quot;isForSell&quot;: true,
+            &quot;archived&quot;: true,
+            &quot;createdAt&quot;: &quot;2021-08-25T14:32:48.282Z&quot;
+        }
+    }
+}
+
+
+
+</code></pre>
+<hr>
+<h4 id="delete">DELETE:</h4>
+<h4 id="delete-item----item">delete item:    <code>/item</code></h4>
+<p>Method: <code>DELETE</code></p>
+<p>params:</p>
+<pre><code>{
+    &quot;id&quot;: 21,
+}
+
+
+</code></pre>
+<p>where  <code>id</code> value is required and should be an integer and valid id of existing item;</p>
+<p>response result example:</p>
+<pre><code>{
+    &quot;status&quot;: &quot;ok&quot;,
+    &quot;error&quot;: null,
+    &quot;data&quot;: {
+        &quot;delete&quot;: &quot;ok&quot;,
+        &quot;id&quot;: 21
+    }
+}
+
+
+</code></pre>
+<hr>
+<p>Note: If you see &quot;Invalid Request&quot; response - that&#39;s it - request is invalid - the url pathname is wrong (or it has wrong method and/or query).</p>
+<hr>
+<p>Authentication - I&#39;ll provide it later (first try using this as is)</p>
+<hr>
+<p>~~API link test Example 1: GET //127.0.0.1:8888/items?size=10&amp;offset=2&amp;sort=DESC&amp;&amp;filter=somevalue~~<br>~~Example 2: POST //127.0.0.1:8888/item~~</p>
+<hr>
+<p>P.S. you can use &quot;Insomnia&quot;, &quot;Postman&quot; tools for API testing.</p>
+<p>and you can check and manage JSON data with http://jsoneditoronline.org/ tool.</p>
+<hr>
+<hr>

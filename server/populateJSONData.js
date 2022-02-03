@@ -44,7 +44,7 @@ const init = () => {
         price: utils.getRandomIntMinMax(100, 99999), // $1 - $999.99
         notes: getLRWordsByMinMax(3, 8),
         isForSell: utils.getRandomIntMinMax(1, 2) > 1,
-        archived: false,
+        archived: utils.getRandomIntMinMax(1, 2) > 1,
         createdAt: new Date(`2021-0${utils.getRandomIntMinMax(1, 9)}-2${utils.getRandomIntMinMax(0, 9)}T1${utils.getRandomIntMinMax(0, 9)}:${utils.getRandomIntMinMax(10, 59)}:48.282Z`),
       };
       return newItemObj;

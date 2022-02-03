@@ -6,7 +6,7 @@ const dataService = require('./dataService');
 
 
 exports.getAPI = (req, res) => {
-  fs.readFile(path.resolve(__dirname, 'api.txt'), 'utf8', (err, data) => {
+  fs.readFile(path.resolve(__dirname, 'api.html'), 'utf8', (err, data) => {
     if (err) throw err;
     const result = data.replace(/\/\/127\.0\.0\.1:8888/gi, `http://${config.API_URL.replace(/\/\//gi, '')}:${config.PORT}`);
     res.statusCode = 200;

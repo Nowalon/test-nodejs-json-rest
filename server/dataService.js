@@ -78,7 +78,7 @@ exports.handleGetGroupedList = (query, cb)=> {
       result.data = {
         totalGroupCount: data.length,
         totalItemCount: itemsLength,
-        resultItemCount: resultItemsLength,
+        // resultItemCount: resultItemsLength,
         list: resultData
       };
     }
@@ -122,7 +122,7 @@ exports.handleGetGroups = (query, cb)=> {
 
       result.data = {
         totalGroupCount: data.length,
-        resultGroupCount: resultData.length,
+        // resultGroupCount: resultData.length,
         list: resultData
       };
     }
