@@ -31,8 +31,8 @@ keep in mind: ***forever*** restarts the server and tries to keep it alive in fa
 
 ##### (re)populate data.json:
 
-`npm run write_data` runs independent script (the server is either running or halt) to populate JSON data file (data.json) with randomly generated data array. resets any previous made changes with new randomly generated data.  
-***there's no default data***, every time it generates new data with random items count and random names (lorem-ipsum based) just with some preset deviations for counts.
+`npm run write_data` runs independent script (the server is either running or halt) to populate JSON data file (data.json) with randomly generated data array. It resets any previous made changes with new randomly generated data.  
+***There's no default data***, every time it generates new data with random items count and random names (lorem-ipsum based) just with some preset deviations for counts.
 
 after data.json gets successfully populated you can see appropriate message: 
 
