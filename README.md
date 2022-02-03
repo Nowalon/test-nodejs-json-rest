@@ -47,9 +47,5 @@ after data.json gets successfully populated you can see appropriate message:
 
 
 
-> quote
-
-~~corrections~~
-
 
 
